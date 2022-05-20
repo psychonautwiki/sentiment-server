@@ -1,10 +1,9 @@
 FROM rustlang/rust:nightly
 
+WORKDIR /my-source
+
 ADD . /my-source
 
-RUN    cd /my-source \
-    && cargo rustc --verbose --release \
-    && mv /my-source/target/release/pw-sentiment-server /pw-sentiment-server \
-    && rm -rfv /my-source
+RUN cargo rustc --verbose --release
 
-CMD ["/pw-sentiment-server"]
+CMD ["/usr/local/cargo/bin/cargo", "run", "--release"]
