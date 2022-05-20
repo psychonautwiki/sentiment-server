@@ -1,0 +1,35 @@
+[package]
+name = "pw-sentiment-server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+lazy_static = "1.4.0"
+nlprule = "0.6.4"
+rust-bert = "0.17.0"
+serde = { version = "1.0.136", features = ["derive"] }
+serde_derive = "1.0.136"
+serde_json = "1.0.79"
+tokio = { version = "1.17.0", features = ["full"] }
+warp = "0.3.2"
+
+[profile]
+
+[profile.dev]
+codegen-units = 1
+debug = true
+debug-assertions = true
+lto = false
+opt-level = 0
+panic = "unwind"
+rpath = true
+
+[profile.release]
+debug = false
+debug-assertions = false
+lto = true
+opt-level = 3
+panic = "unwind"
+rpath = true
