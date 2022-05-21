@@ -182,7 +182,7 @@ async fn main() {
             .and(tokenizer_provider)
             .and(sentiment_classifier_provider)
             .and(
-                warp::body::content_length_limit(1024 * 32)
+                warp::body::content_length_limit(1024 * 128)
                     .and(warp::body::json::<Query>())
             )
             .and_then(handle_analyze);
